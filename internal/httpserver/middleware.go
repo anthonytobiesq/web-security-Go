@@ -30,6 +30,7 @@ func applyMiddleware(handler http.Handler, middlewareChain ...middleware) http.H
 	return handler
 }
 
+/*
 func permissiveCORS(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(responseWriter http.ResponseWriter, request *http.Request) {
 		if origin := request.Header.Get("Origin"); origin != "" {
@@ -45,7 +46,7 @@ func permissiveCORS(next http.Handler) http.Handler {
 		}
 		next.ServeHTTP(responseWriter, request)
 	})
-}
+}*/
 
 func preventCSRF(appOrigin string, renderer *templates.Renderer) middleware {
 	return func(next http.Handler) http.Handler {
